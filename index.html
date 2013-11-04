@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WMS Layers Visualization using MapBox and Leaflet</title>
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/us-states.js"></script>
+        <script src="js/mapbox.js"></script>
+        <link href='css/mapbox.css' rel='stylesheet' />
+        <style>
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+
+            .transparent {
+                opacity: 0.85;
+                background: #2C2C2C;
+                font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+                color: white; 
+            }
+
+            #infobar {
+                opacity: 0.85; 
+                background: #2C2C2C;
+                font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+                color: white; 
+            }            
+
+            #layer {
+                opacity: 0.85;
+                filter: alpha(opacity=85);/* For IE8 and earlier */
+                position: absolute;
+                left: 10px;
+                bottom: 45px;
+                height: 450px;
+                width:250px;
+                z-index: 10000;
+                -moz-border-radius: 7px;
+                -webkit-border-radius: 7px;
+                border-radius: 7px;
+                box-shadow: 0 0 7px #999;
+                background: #2C2C2C;
+                font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+                padding-left: 10px;
+                padding-right: 5px;
+                line-height: 15px;
+                color: white;
+                overflow: auto;
+            }
+
+            #layer:hover {
+                opacity: 0.95;
+                filter: alpha(opacity=95);
+            }
+
+            #layer hr {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                height: 1px;
+                border: 0;
+            }
+
+          #divHeader {
+                position: absolute; 
+                top:0px;
+                height:40px;
+                width: 100%;
+                display: block;
+                background:  #2C2C2C;
+                z-index: 10000;
+                color: #FF8B00;
+                opacity: 0.95;
+                font: 25px/1.5 Helvetica,Arial,sans-serif;
+                text-align: left;
+                padding-left: 25px;           
+            } 
+            
+        </style>
+    </head>
+    <body> 
+        
+
+
+        <div id='map'>
+            <div id="divHeader">
+            <strong>WMS Layers Visualization using MapBox and Leaflet</strong>
+        </div>
+                 <div id="divFooter"> <h1></h1><h2></h2><h3></h3>  
+     </div>   
+      </div>  
+        <div id="layer">
+            <h3><strong>Layers</strong></h3>
+            <hr>
+            <input type= button name= type id='bt1' class="input" value='Hide Layers' onclick="setVisibility('layer','footer');">
+            <br><br>
+            <div id="layerContents">
+                <strong>Base Maps</strong>
+                <br>
+                <input type="radio" id="styled" name="baselayer" class="baselayer" value="styled" checked/><label for="styled"></label>Leaflet Base Map<br>
+				<br>				
+                <hr>
+                <strong>Overlay Layers</strong>
+                <br>
+                <div id="Overlays">
+                </div>
+                <br>                
+            </div>
+        </div>
+        <script src="js/map_plot.js"> </script>
+    </body>
+</html>
